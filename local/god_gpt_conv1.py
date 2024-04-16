@@ -24,7 +24,7 @@ class CustomDataset(Dataset):
         label = self.labels[index]
         df = pd.read_csv(file_path)
         # 3번째 컬럼 추출하여 1차원 시계열 데이터로 변환
-        data = self.df.iloc[:, 2].values.astype(float)
+        data = df.iloc[:, 2].values.astype(float)
 
         # PyTorch의 FloatTensor로 변환하여 반환
         return torch.FloatTensor(data).cuda(), label
