@@ -12,22 +12,19 @@ import numpy as np
 
 # 사용자 정의 데이터셋 클래스
 class CustomDataset(Dataset):
-    def __init__(self, file_paths, labels):
+    def __init__(self, file_paths, labels, df):
         self.file_paths = file_paths
         self.labels = labels
+        file_path = self.file_paths[index]
+        label = self.labels[index]
+        self.df = pd.read_csv(file_path)
 
     def __len__(self):
         return len(self.file_paths)
 
     def __getitem__(self, index):
-        file_path = self.file_paths[index]
-        label = self.labels[index]
-
-        # CSV 파일 읽기
-        df = pd.read_csv(file_path)
-
         # 3번째 컬럼 추출하여 1차원 시계열 데이터로 변환
-        data = df.iloc[:, 2].values.astype(float)
+        data = self.df.iloc[:, 2].values.astype(float)
 
         # PyTorch의 FloatTensor로 변환하여 반환
         return torch.FloatTensor(data).cuda(), label
