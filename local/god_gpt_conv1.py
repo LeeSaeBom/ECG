@@ -15,14 +15,14 @@ class CustomDataset(Dataset):
     def __init__(self, file_paths, labels):
         self.file_paths = file_paths
         self.labels = labels
-        file_path = self.file_paths[index]
-        label = self.labels[index]
-        self.df = pd.read_csv(file_path)
 
     def __len__(self):
         return len(self.file_paths)
 
     def __getitem__(self, index):
+        file_path = self.file_paths[index]
+        label = self.labels[index]
+        df = pd.read_csv(file_path)
         # 3번째 컬럼 추출하여 1차원 시계열 데이터로 변환
         data = self.df.iloc[:, 2].values.astype(float)
 
@@ -59,8 +59,8 @@ input_size = 357
 num_classes = 100
 
 # train, test 폴더 경로
-train_path = "/home/iiplab/nas_iiplab/server_test/dataset/train"
-test_path = "/home/iiplab/nas_iiplab/server_test/dataset/val"
+train_path = "/home/iiplab/dataset/server_test/dataset/train"
+test_path = "/home/iiplab/dataset/server_test/dataset/val"
 
 # 클래스 정보 추출
 train_file_paths = []
