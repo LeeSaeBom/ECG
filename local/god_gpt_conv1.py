@@ -12,7 +12,7 @@ import numpy as np
 
 # 사용자 정의 데이터셋 클래스
 class CustomDataset(Dataset):
-    def __init__(self, file_paths, labels, df):
+    def __init__(self, file_paths, labels):
         self.file_paths = file_paths
         self.labels = labels
         file_path = self.file_paths[index]
