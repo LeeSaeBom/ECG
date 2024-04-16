@@ -133,7 +133,7 @@ for epoch in range(num_epochs):
         inputs = inputs.unsqueeze(1).to(device)  # 차원 추가하여 1D 시계열 데이터로 변환
         labels = labels.to(device)
 
-        println(inputs)
+        print(inputs)
 
         optimizer.zero_grad()
         outputs = model(inputs)
