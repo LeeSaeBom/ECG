@@ -62,8 +62,8 @@ input_size = 357
 num_classes = 100
 
 # train, test 폴더 경로
-train_path = "D:/ECG/dataset/train"
-test_path = "D:/ECG/dataset/val"
+train_path = "/home/iiplab/nas_iiplab/server_test/dataset/train"
+test_path = "/home/iiplab/nas_iiplab/server_test/dataset/val"
 
 # 클래스 정보 추출
 train_file_paths = []
