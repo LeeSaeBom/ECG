@@ -93,6 +93,8 @@ label_map = {label: i for i, label in enumerate(sorted(list(set(train_labels))))
 train_labels = [label_map[label] for label in train_labels]
 test_labels = [label_map[label] for label in test_labels]
 
+print("set dataset")
+
 # 데이터셋 생성
 train_dataset = CustomDataset(train_file_paths, train_labels)
 test_dataset = CustomDataset(test_file_paths, test_labels)
@@ -122,12 +124,16 @@ total_f1_score = 0.0
 accuracy_list = []
 f1_score_list = []
 
+print("Running Training.")
+
 for epoch in range(num_epochs):
     model.train()
     running_loss = 0.0
     for inputs, labels in train_loader:
         inputs = inputs.unsqueeze(1).to(device)  # 차원 추가하여 1D 시계열 데이터로 변환
         labels = labels.to(device)
+
+        println(inputs)
 
         optimizer.zero_grad()
         outputs = model(inputs)
