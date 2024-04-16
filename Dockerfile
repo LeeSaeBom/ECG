@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
+FROM pytorch/pytorch:2.2.1-cuda11.8-cudnn8-runtime
 
 RUN apt-get -y -qq update && \
     pip install numpy matplotlib librosa libsndfile1 pandas
