@@ -59,8 +59,8 @@ input_size = 357
 num_classes = 100
 
 # train, test 폴더 경로
-train_path = "/home/iiplab/dataset/server_test/dataset/train"
-test_path = "/home/iiplab/dataset/server_test/dataset/val"
+train_path = "/home/iiplab/Desktop/SB/ECG/train"
+test_path = "/home/iiplab/Desktop/SB/ECG/val"
 
 # 클래스 정보 추출
 train_file_paths = []
