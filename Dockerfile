@@ -17,4 +17,4 @@ COPY . .
 RUN echo ${FILE_NAME}
 RUN ls -la
 
-CMD python3 $FILE_NAME
+CMD python3 -u $FILE_NAME
