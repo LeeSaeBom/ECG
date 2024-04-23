@@ -68,6 +68,8 @@ train_labels = []
 test_file_paths = []
 test_labels = []
 
+print("read here 1")
+
 # train 폴더 내의 파일 경로 및 레이블 정보 추출
 subfolders = [f.path for f in os.scandir(train_path) if f.is_dir()]
 for subfolder in subfolders:
@@ -77,6 +79,8 @@ for subfolder in subfolders:
     train_file_paths.extend(csv_files)
     train_labels.extend([class_label] * len(csv_files))
 
+print("read here 2")
+
 # test 폴더 내의 파일 경로 및 레이블 정보 추출
 subfolders = [f.path for f in os.scandir(test_path) if f.is_dir()]
 for subfolder in subfolders:
@@ -84,6 +88,8 @@ for subfolder in subfolders:
     csv_files = glob.glob(os.path.join(subfolder, "*.csv"))
     test_file_paths.extend(csv_files)
     test_labels.extend([class_label] * len(csv_files))
+
+print("read here 3")
 
 # 클래스를 숫자로 변환
 label_map = {label: i for i, label in enumerate(sorted(list(set(train_labels))))}
@@ -100,6 +106,8 @@ test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 # 모델 인스턴스 생성
 model = CNN1D(input_size, num_classes)
+
+print("read here 4")
 
 # 모델 훈련
 criterion = nn.CrossEntropyLoss()
@@ -118,6 +126,8 @@ total_f1_score = 0.0
 # 평가 결과 저장을 위한 리스트
 accuracy_list = []
 f1_score_list = []
+
+print("read here 5")
 
 for epoch in range(num_epochs):
     model.train()
